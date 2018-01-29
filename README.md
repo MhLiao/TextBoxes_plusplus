@@ -3,7 +3,7 @@
 ### Introduction
 This is an application for scene text detection (TextBoxes++) and recognition (CRNN).
 
-TextBoxes++ is an unified framework for oriented scene text detection with a single network. It is an extended work of [TextBoxes](https://github.com/MhLiao/TextBoxes). [CRNN](https://github.com/bgshih/crnn) is an open-source text recognizer. 
+TextBoxes++ is a unified framework for oriented scene text detection with a single network. It is an extended work of [TextBoxes](https://github.com/MhLiao/TextBoxes). [CRNN](https://github.com/bgshih/crnn) is an open-source text recognizer. 
 The code of TextBoxes++ is based on [SSD](https://github.com/weiliu89/caffe/tree/ssd) and [TextBoxes](https://github.com/MhLiao/TextBoxes). The code of CRNN is modified from [CRNN](https://github.com/bgshih/crnn).
 
 
@@ -82,7 +82,7 @@ Please cite the related works in your publications if it helps your research:
 [BaiduYun](https://pan.baidu.com/s/1i6umxTj)
     
     Please place the above models in "./models/"
-    If your data is hugely differnent from ICDAR 2015 Incidental Text，you'd better train it on your own data based on the pre-trained model on SynthText.
+    If your data is hugely different from ICDAR 2015 Incidental Text，you'd better train it on your own data based on the pre-trained model on SynthText.
 
 3. CRNN model:
 [Dropbox](https://www.dropbox.com/s/kmi62qxm9z08o6h/model_crnn.t7?dl=0);
