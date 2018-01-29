@@ -30,16 +30,18 @@ Please cite the related works in your publications if it helps your research:
       booktitle = {AAAI},
       year      = {2017}
     }
-
-    @article{ShiBY15,
-        author    = {Baoguang Shi and
-               Xiang Bai and
-               Cong Yao},
-        title     = {An End-to-End Trainable Neural Network for Image-based Sequence Recognition
-               and Its Application to Scene Text Recognition},
-        journal   = {CoRR},
-        volume    = {abs/1507.05717},
-        year      = {2015}
+    
+    @article{ShiBY17,
+      author    = {Baoguang Shi and
+                   Xiang Bai and
+                   Cong Yao},
+      title     = {An End-to-End Trainable Neural Network for Image-Based Sequence Recognition
+                   and Its Application to Scene Text Recognition},
+      journal   = {{IEEE} TPAMI},
+      volume    = {39},
+      number    = {11},
+      pages     = {2298--2304},
+      year      = {2017}
     }
 
 ### Contents
