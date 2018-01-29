@@ -110,5 +110,5 @@ The detection results and recognition results are in "./demo_images"
     
 #### Start training
     
-    1. modify the lmdb path in modelCOnfig.py
+    1. modify the lmdb path in modelConfig.py
     2. Run "python examples/text/train.py"
