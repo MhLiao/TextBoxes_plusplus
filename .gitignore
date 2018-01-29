@@ -1,0 +1,17 @@
+# Python:
+*.pyc
+*.so
+*.egg
+*.egg-info
+*.caffemodel
+*.t7
+.build_release
+build
+distribute
+Makefile.config
+
+data/data_text
+models/VGGNet
+examples/text/train_*
+examples/text/test_*
+jobs
