@@ -57,14 +57,13 @@ Please cite the related works in your publications if it helps your research:
 
 ### Installation
 
-1. compile TextBoxes++
+1. compile TextBoxes++ (Do not need to install the official caffe)
   ```Shell
   # Modify Makefile.config according to your Caffe installation.
   cp Makefile.config.example Makefile.config
   make -j8
   # Make sure to include $CAFFE_ROOT/python to your PYTHONPATH.
   make py
-  make test -j8
   ```
 2. compile CRNN (Please refer to [CRNN](https://github.com/bgshih/crnn) if you have trouble with the compilation.)
   ```Shell
