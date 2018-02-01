@@ -41,14 +41,12 @@ net[name] = L.MultiBoxLoss(*mbox_layers, multibox_loss_param=modelConfig.multibo
         loss_param=modelConfig.loss_param, include=dict(phase=caffe_pb2.Phase.Value('TRAIN')),
         propagate_down=[True, True, False, False])
 
-# create recognition net 
 conf_name = "mbox_conf"
 with open(modelConfig.train_net_file, 'w') as f:
     print('name: "{}_train"'.format(modelConfig.model_name), file=f)
     print(net.to_proto(), file=f)
 shutil.copy(modelConfig.train_net_file, modelConfig.job_dir)
 
-# Create test net.
 net = caffe.NetSpec()
 net.data, net.label = CreateAnnotatedDataLayer(config['test_data'], batch_size=modelConfig.test_batch_size,
         train=False, output_label=True, label_map_file=config['label_map_file'],
