@@ -54,10 +54,11 @@ Please cite the related works in your publications if it helps your research:
 ### Requirements
     Torch7 for CRNN; 
     g++-5; cuda8.0; cudnn V5; opencv3.0
+Please refer to [Caffe Installation](http://caffe.berkeleyvision.org/install_apt.html) to ensure other dependencies;
 
 ### Installation
 
-1. compile TextBoxes++ (Do not need to install the official caffe)
+1. compile TextBoxes++ (This is a modified version of caffe so you do not need to install the official caffe)
   ```Shell
   # Modify Makefile.config according to your Caffe installation.
   cp Makefile.config.example Makefile.config
@@ -81,6 +82,7 @@ Please cite the related works in your publications if it helps your research:
 [BaiduYun](https://pan.baidu.com/s/1i6umxTj)
     
     Please place the above models in "./models/"
+    
     If your data is hugely different from ICDAR 2015 Incidental Text，you'd better train it on your own data based on the pre-trained model on SynthText.
 
 3. CRNN model:
