@@ -53,7 +53,8 @@ Please cite the related works in your publications if it helps your research:
 
 ### Requirements
     Torch7 for CRNN; 
-    g++-5; cuda8.0; cudnn V5; opencv3.0
+    g++-5; cuda8.0; cudnn V5.1 (cudnn 6 and cudnn 7 may fail); opencv3.0
+  
 Please refer to [Caffe Installation](http://caffe.berkeleyvision.org/install_apt.html) to ensure other dependencies;
 
 ### Installation
