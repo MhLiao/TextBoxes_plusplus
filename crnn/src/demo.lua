@@ -121,7 +121,7 @@ else
 			local height, width = imgCrop:size(2), imgCrop:size(3)
 			imgCrop = Image.scale(imgCrop, 100, 32)[1]
 			if config.useLexicon then
-				local resTopN, probTopN = recognizeImageWithLexicion(model_English, imgCrop, lexicon, 1)
+				local resTopN, probTopN = recognizeImageWithLexicion(model, imgCrop, lexicon, 1)
 				local text = resTopN[1]
 				local prob = probTopN[1]
 				bbox_recognition:write(string.format('%s,%s,%f', bbox, text, prob) .. '\n')
