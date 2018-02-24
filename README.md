@@ -79,8 +79,8 @@ Please refer to [Caffe Installation](http://caffe.berkeleyvision.org/install_apt
 [BaiduYun](https://pan.baidu.com/s/1htV2j4K)
 
 2. model trained on ICDAR 2015 Incidental Text (used for testing):
-[Dropbox](https://www.dropbox.com/s/0agef88zsp72ej5/model_icdar15.caffemodel?dl=0); 
-[BaiduYun](https://pan.baidu.com/s/1i6umxTj)
+[Dropbox](https://www.dropbox.com/s/9znpiqpah8rir9c/model_icdar15.caffemodel?dl=0); 
+[BaiduYun](https://pan.baidu.com/s/1bqekTun)
     
     Please place the above models in "./models/"
     
