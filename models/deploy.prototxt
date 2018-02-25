@@ -1671,7 +1671,7 @@ layer {
       top_k: 400
     }
     save_output_param {
-      output_directory: "/home/mhliao/data/text/results/text/text_polygon_ic15_fix_order_384x384/Main"
+      output_directory: "./data/text/results/text/text_polygon_ic15_fix_order_384x384/Main"
       output_name_prefix: "comp4_det_test_"
       output_format: "VOC"
       label_map_file: "data/text/labelmap_voc.prototxt"
