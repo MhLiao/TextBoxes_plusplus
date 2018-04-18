@@ -15,8 +15,9 @@ Please cite the related works in your publications if it helps your research:
     @article{Liao2018Text,
       title = {{TextBoxes++}: A Single-Shot Oriented Scene Text Detector},
       author = {Minghui Liao, Baoguang Shi and Xiang Bai},
-      journal   = {CoRR},
-      volume    = {abs/1801.02765},
+      journal = {{IEEE} Transactions on Image Processing},
+      doi  = {10.1109/TIP.2018.2825107},
+      url = {https://doi.org/10.1109/TIP.2018.2825107},
       year = {2018}
     }
     
