@@ -1,3 +1,32 @@
+# Docker image for TextBoxes++
+
+### Building (GPU only)
+
+If you cloned with https this should work:
+
+`docker build -t tbpp:gpu --build-arg CLONE_REPO=$(git remote get-url --all origin) standalone/gpu`
+
+Otherwise find the https clone url and pass it as argument.
+
+### Running
+
+This should get you a shell session:
+
+`docker run -it --name tbpp -h tbpp -v$(pwd):/mnt/share tbpp:gpu /bin/bash`
+
+It will be in `/opt/caffe`. You can check the `examples/text` folder.
+
+**NOTE:** crnn is _not_ installed in the image (yet) because it requires Torch
+
+Enjoy!
+
+
+You will find some usage hints in the doc for the original caffe Dockerfiles below.
+
+
+==============================
+
+
 # Caffe standalone Dockerfiles.
 
 The `standalone` subfolder contains docker files for generating both CPU and GPU executable images for Caffe. The images can be built using make, or by running:
