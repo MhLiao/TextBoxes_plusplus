@@ -54,7 +54,7 @@ Please cite the related works in your publications if it helps your research:
 
 ### Requirements
 
-**NOTE** There is partial support for a docker image. See `docker/README.md`.
+**NOTE** There is partial support for a docker image. See `docker/README.md`. (Thank you for the PR from [@mdbenito](https://github.com/mdbenito))
 
     Torch7 for CRNN; 
     g++-5; cuda8.0; cudnn V5.1 (cudnn 6 and cudnn 7 may fail); opencv3.0
