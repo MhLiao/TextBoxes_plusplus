@@ -18,6 +18,9 @@ Please cite the related works in your publications if it helps your research:
       journal = {{IEEE} Transactions on Image Processing},
       doi  = {10.1109/TIP.2018.2825107},
       url = {https://doi.org/10.1109/TIP.2018.2825107},
+      volume    = {27},
+      number    = {8},
+      pages     = {3676--3690},
       year = {2018}
     }
     
