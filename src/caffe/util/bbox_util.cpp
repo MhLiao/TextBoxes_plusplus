@@ -1330,10 +1330,10 @@ void DecodeBBoxPolygon(
     decode_polygon->set_y1(y1);
     decode_polygon->set_x2(x2);
     decode_polygon->set_y2(y2);
-    decode_polygon->set_x1(x3);
-    decode_polygon->set_y1(y3);
-    decode_polygon->set_x2(x4);
-    decode_polygon->set_y2(y4);
+    decode_polygon->set_x3(x3);
+    decode_polygon->set_y3(y3);
+    decode_polygon->set_x4(x4);
+    decode_polygon->set_y4(y4);
   } else if (code_type == PriorBoxParameter_CodeType_CORNER_SIZE) {
     float prior_width = prior_bbox.xmax() - prior_bbox.xmin();
     CHECK_GT(prior_width, 0);
