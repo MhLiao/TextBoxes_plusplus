@@ -49,11 +49,14 @@ Please cite the related works in your publications if it helps your research:
     }
 
 ### Contents
+
 1. [Requirements](#requirements)
 2. [Installation](#installation)
-3. [Models](#models)
-4. [Demo](#demo)
-5. [Train](#train)
+3. [Docker](#docker)
+4. [Models](#models)
+5. [Demo](#demo)
+6. [Train](#train)
+
 
 ### Requirements
 
@@ -63,6 +66,7 @@ Please cite the related works in your publications if it helps your research:
     g++-5; cuda8.0; cudnn V5.1 (cudnn 6 and cudnn 7 may fail); opencv3.0
   
 Please refer to [Caffe Installation](http://caffe.berkeleyvision.org/install_apt.html) to ensure other dependencies;
+
 
 ### Installation
 
@@ -79,8 +83,34 @@ Please refer to [Caffe Installation](http://caffe.berkeleyvision.org/install_apt
   cd crnn/src/
   sh build_cpp.sh
   ```
+
+### Docker
+
+Build Docke Image
+
+    docker build -t tbpp_crnn:gpu .
+
+This can take +1h, so go get a coffee ;)
+
+Once this is done you can start a container via `nvidia-docker`. 
+
+    nvidia-docker run -it --rm tbpp_crnn:gpu bash
+
+To check if the GPU is available inside the docker container you can run `nvidia-smi`.
+
+It's recommendable to mount the `./models` and `./crnn/model/` directories to include the downloaded [models](#models).
+
+    nvidia-docker run -it \
+                      --rm \
+                      -v ${PWD}/models:/opt/caffe/models \ 
+                      -v ${PWD}/crrn/model:/opt/caffe/crrn/model \
+                      tbpp_crnn:gpu bash
+
+For convenince this command is executed when running `./run.bash`.
   
+
 ### Models
+
 1. pre-trained model on SynthText (used for training):
 [Dropbox](https://www.dropbox.com/s/kpv17f3syio95vn/model_pre_train_syn.caffemodel?dl=0); 
 [BaiduYun](https://pan.baidu.com/s/1htV2j4K)
@@ -99,7 +129,9 @@ Please refer to [Caffe Installation](http://caffe.berkeleyvision.org/install_apt
 
     Please place the crnn model in "./crnn/model/"
 
+
 ### Demo 
+
 Download the ICDAR 2015 model and place it in "./models/"
   ```Shell
   python examples/text/demo.py

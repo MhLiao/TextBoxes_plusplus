@@ -116,32 +116,41 @@ RUN cd /root/fblualib/fblualib && \
 ########################################
 #### Install CRNN ######################
 ########################################
-COPY crnn ${CAFFE_ROOT}/crnn
+COPY crnn/src ${CAFFE_ROOT}/crnn/src
 
 # Install CRNN
 RUN cd ${CAFFE_ROOT}/crnn/src && \
     ./build_cpp.sh
 
 ########################################
+#### Install Textboxes++ Dependencies ##
+########################################
+WORKDIR $CAFFE_ROOT
+
+# Cython needs to be installed seperately
+Copy python ${CAFFE_ROOT}/python
+RUN pip install Cython==0.28.5
+RUN pip install -r python/requirements.txt
+
+########################################
 #### Install Textboxes++ ###############
 ########################################
 WORKDIR $CAFFE_ROOT
 # Include Build context
-Copy cmake ${CAFFE_ROOT}/cmake 
+COPY caffe.cloc ${CAFFE_ROOT}/caffe.cloc
+Copy cmake ${CAFFE_ROOT}/cmake
 Copy CMakeLists.txt ${CAFFE_ROOT}/CMakeLists.txt
 Copy include ${CAFFE_ROOT}/include 
-Copy Makefile ${CAFFE_ROOT}
-Copy matlab ${CAFFE_ROOT}
-Copy python ${CAFFE_ROOT}/python 
-Copy src ${CAFFE_ROOT}/src 
+Copy matlab ${CAFFE_ROOT}/matlab
+Copy src ${CAFFE_ROOT}/src
+COPY tools ${CAFFE_ROOT}/tools
+COPY LICENSE ${CAFFE_ROOT}/LICENSE
+COPY scripts ${CAFFE_ROOT}/scripts
 
 # CUDA_ARCH_NAME=Manual is a workaround the lack of compute_60 or higher in cuda7.5's cuda
 # Required for recent GPUs
-
-# Cython needs to be installed seperately
-RUN pip install Cython==0.28.5
-RUN pip install -r python/requirements.txt
-RUN mkdir build && cd build && \
+RUN mkdir build && \
+    cd build && \
     cmake .. -DCUDA_ARCH_NAME=Manual && \
     make -j"$(nproc)"
 
@@ -157,14 +166,11 @@ RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 ########################################
 #### COPY Context required at runtime ##
 ########################################
+COPY crnn/data ${CAFFE_ROOT}/crnn/data
 COPY data ${CAFFE_ROOT}/data
 COPY demo_images ${CAFFE_ROOT}/demo_images
 COPY examples ${CAFFE_ROOT}/examples
-COPY LICENSE ${CAFFE_ROOT}/LICENSE
-COPY models ${CAFFE_ROOT}/models
 COPY README.md ${CAFFE_ROOT}/README.md
-COPY scripts ${CAFFE_ROOT}/scripts
-COPY tools ${CAFFE_ROOT}/tools
 
 
 WORKDIR /opt/caffe
