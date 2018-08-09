@@ -1,0 +1,29 @@
+diff --git a/thrift/compiler/generate/t_rb_generator.cc b/thrift/compiler/generate/t_rb_generator.cc
+index aa0bfbc..6efe46a 100644
+--- a/thrift/compiler/generate/t_rb_generator.cc
++++ b/thrift/compiler/generate/t_rb_generator.cc
+@@ -312,7 +312,10 @@ void t_rb_generator::generate_enum(t_enum* tenum) {
+     //Populate the hash
+     int32_t value = (*c_iter)->get_value();
+ 
+-    first ? first = false : f_types_ << ", ";
++    if (first) 
++        first = false;
++    else
++        f_types_ << ", ";
+     f_types_ << value << " => \"" << capitalize((*c_iter)->get_name()) << "\"";
+ 
+   }
+@@ -323,7 +326,10 @@ void t_rb_generator::generate_enum(t_enum* tenum) {
+   first = true;
+   for (c_iter = constants.begin(); c_iter != constants.end(); ++c_iter) {
+     // Populate the set
+-    first ? first = false: f_types_ << ", ";
++    if (first) 
++        first = false;
++    else
++        f_types_ << ", ";
+     f_types_ << capitalize((*c_iter)->get_name());
+   }
+   f_types_ << "]).freeze" << endl;
+
