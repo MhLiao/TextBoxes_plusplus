@@ -1,0 +1,69 @@
+diff --git a/thpp/CMakeLists.txt b/thpp/CMakeLists.txt
+index 62159fb..000801b 100644
+--- a/thpp/CMakeLists.txt
++++ b/thpp/CMakeLists.txt
+@@ -33,9 +33,10 @@ INCLUDE_DIRECTORIES(
+
+ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+
+-ADD_SUBDIRECTORY("gtest-1.7.0")
++
++ADD_SUBDIRECTORY("googletest-release-1.7.0")
+ INCLUDE_DIRECTORIES(
+-  "${CMAKE_CURRENT_SOURCE_DIR}/gtest-1.7.0/include"
++  "${CMAKE_CURRENT_SOURCE_DIR}/googletest-release-1.7.0/include"
+ )
+
+ SET(src
+diff --git a/thpp/build.sh b/thpp/build.sh
+index 838560c..05292d1 100755 
+--- a/thpp/build.sh
++++ b/thpp/build.sh
+@@ -15,14 +15,14 @@ if [[ ! -r ./Tensor.h ]]; then
+   exit 1
+ fi
+
+-rm -rf gtest-1.7.0 gtest-1.7.0.zip
+-curl -JLO https://googletest.googlecode.com/files/gtest-1.7.0.zip
+-if [[ $(sha1sum -b gtest-1.7.0.zip | cut -d' ' -f1) != \
+-      'f85f6d2481e2c6c4a18539e391aa4ea8ab0394af' ]]; then
+-  echo "Invalid gtest-1.7.0.zip file" >&2
++rm -rf googletest-release-1.7.0.zip
++curl -JLO https://github.com/google/googletest/archive/release-1.7.0.zip
++if [[ $(sha1sum -b googletest-release-1.7.0.zip | cut -d' ' -f1) != \
++      'f89bc9f55477df2fde082481e2d709bfafdb057b' ]]; then
++  echo "Invalid googletest-release-1.7.0.zip file" >&2
+   exit 1
+ fi
+-unzip gtest-1.7.0.zip
++unzip googletest-release-1.7.0.zip 
+
+ # Build in a separate directory
+ mkdir -p build
+diff --git a/thpp/detail/TensorGeneric.h b/thpp/detail/TensorGeneric.h
+index 144d23d..a7ebb10 100644
+--- a/thpp/detail/TensorGeneric.h
++++ b/thpp/detail/TensorGeneric.h
+@@ -188,17 +188,17 @@ template <> struct TensorOps<real> {
+   }
+   static void _max(THTensor* values, THLongTensor* indices,
+                    THTensor* t, int dim) {
+-    return THTensor_(max)(values, indices, t, dim);
++    return THTensor_(max)(values, indices, t, dim, 1);
+   }
+   static void _min(THTensor* values, THLongTensor* indices,
+                    THTensor* t, int dim) {
+-    return THTensor_(min)(values, indices, t, dim);
++    return THTensor_(min)(values, indices, t, dim, 1);
+   }
+   static void _sum(THTensor* r, THTensor* t, int dim) {
+-    return THTensor_(sum)(r, t, dim);
++    return THTensor_(sum)(r, t, dim, 1);
+   }
+   static void _prod(THTensor* r, THTensor* t, int dim) {
+-    return THTensor_(prod)(r, t, dim);
++    return THTensor_(prod)(r, t, dim, 1);
+   }
+   static void _cumsum(THTensor* r, THTensor* t, int dim) {
+     return THTensor_(cumsum)(r, t, dim);
+
