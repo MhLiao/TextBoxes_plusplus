@@ -85,6 +85,7 @@ Please refer to [Caffe Installation](http://caffe.berkeleyvision.org/install_apt
   ```
 
 ### Docker
+(Thanks for the PR from [@idotobi](https://github.com/idotobi))
 
 Build Docke Image
 
