@@ -1,5 +1,5 @@
 import argparse
-caffe_root = '/home/mhliao/research/oriented/TextBoxes_rec/'  # this file is expected to be in {caffe_root}/examples
+caffe_root = './'  # this file is expected to be in {caffe_root}/examples
 import os
 os.chdir(caffe_root)
 import sys
