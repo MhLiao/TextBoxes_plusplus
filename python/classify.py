@@ -15,7 +15,7 @@ import caffe
 
 
 def main(argv):
-    pycaffe_dir = os.path.dirname(__file__)
+    pycaffe_dir = os.path.dirname(__file__)#test
 
     parser = argparse.ArgumentParser()
     # Required arguments: input and output files.
